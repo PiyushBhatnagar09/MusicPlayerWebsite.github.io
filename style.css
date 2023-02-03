@@ -1,0 +1,854 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+/*Basic color variables*/
+:root{
+	--bg_color_1 : #070130;
+	--bg_color_2: #0d0065;
+	--bg_color_3: #222b5c;
+	--bg_music_bar: #2b2b2a;
+	--font_color_1: white;
+	--font_color_2: lightgrey;
+	--font_color_3 : #1DB954;
+}
+
+body {
+	background-color: #010120;
+}
+#footer {
+	display: none;
+}
+#footer:target {
+	display: block;
+}
+
+/* Nav Bar properties */
+.nav-bar {
+	display: flex;
+	position: sticky;
+	z-index: 80;
+	top: 0px;
+	background-color: #001212;
+	height: 50px;
+	flex-direction: row;
+
+	min-width: 450px;
+}
+
+#logo-container {
+	height: 100%;
+	width: 5%;
+}
+
+#logo-container img {
+	height: 100%;
+	width: 100%;
+}
+
+#brand-name {
+	padding: 10px 20px;
+	display: block;
+}
+
+#brand-name p {
+	margin: 0px;
+}
+
+.nav-bar p {
+	color: white;
+}
+
+#fav {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 5%;
+	align-content: center;
+	justify-content: center;
+}
+#fav a{
+	text-decoration: none;
+	color: white;
+}
+
+#search-box i {
+	color: white;
+}
+
+#search-box {
+	margin-left: auto;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	border-radius: 10px;
+	padding: 10px 10px 10px 10px;
+	background-color: #014949;
+}
+
+#search-box input {
+	background-color: #014949;
+	outline: none;
+	border: none;
+	color: white;
+}
+
+#bell {
+	color: white;
+	padding: 16px 10px 10px 10px;
+}
+
+#me {
+	height: 40px;
+	width: 40px;
+	margin: 5px 10px;
+	border-radius: 50%;
+}
+
+#me img {
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+}
+/* --nav bar ends-- */
+
+
+#outer-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/* border: 2px solid red; */
+
+	min-width: 450px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+
+    width: 70%;
+    height: 100%;
+
+    padding: 5px 10vh 5vh 20vh;
+    /* border: 2px solid red; */
+}
+
+aside {
+	/* border: 2px solid red; */
+	width: 30%;
+	height: 100%;
+}
+
+
+/* Carousel properties */
+.slideshow {
+	width: 40%;
+	min-height: 40vh;
+    overflow: hidden; /* to hide slides in x-direction */
+    position: relative;
+
+    margin: 0% 60% 0% 30%;
+
+    /* border: 2px solid green; */
+}
+
+/* wrapper which wraps all the slideshow images stylings */
+.slideshow-wrapper {
+    display: flex;
+    /* We give it width as 400% because we are making a 
+       4 image carousel */
+    width: 400%;
+    min-height: 100%;
+    position: relative;
+
+    /* border: 2px solid grey; */
+
+    animation: slideshow 10s infinite;
+ }
+
+/* define width and height for images*/
+.slide {
+    width: 100%;
+    min-height: 100%;
+
+    /* border: 2px solid yellow; */
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* border: 4px solid maroon; */
+}
+
+/* @keyframes are used to provide animations.
+   We make these settings for 4 image carousel */
+@keyframes slideshow {
+    0% { 
+    	left: 0; 
+    }
+    10% { 
+    	left: 0; 
+    }
+    15% { 
+    	left: -100%; 
+    }
+    25% { 
+    	left: -100%; 
+    }
+    30% { 
+    	left: -200%; 
+    }
+    40% { 
+    	left: -200%; 
+    }
+    45% { 
+    	left: -300%; 
+    }
+    55% { 
+    	left: -300%; 
+    }
+    60% { 
+    	left: -200%; 
+    }
+    70% { 
+    	left: -200%; 
+    }
+    75% { 
+    	left: -100%; 
+    }
+    85% { 
+    	left: -100%; 
+    }
+    90% { 
+    	left: 0%; 
+    }
+}
+/* ----- end of slideshow stylings ----- */
+
+/* ----- carousel control buttons stylings ----- */
+.slide-btn {
+    background-color: #bbb;
+    border-radius: 50%;
+    border: 2px solid #d38800;
+    width: 8px;
+    height: 8px;
+    outline: none;
+    cursor: pointer;
+    padding: 0px;
+
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 70;
+}
+
+/* As we provide position as absolute, 
+the buttons places one over the other. 
+So, we have to place them individually
+at their correct positions. */
+.slide-btn-1 {
+    left: 42%;
+}
+.slide-btn-2 {
+    left: 50%;
+}
+.slide-btn-3 {
+    left: 58%;
+}
+.slide-btn-4 {
+    left: 66%;
+}
+
+/* When we focus on the particular button, 
+the animation stops to that particular image 
+to which the button is associated. */
+.slide-btn-1:focus~.slideshow-wrapper {
+    animation: none;
+    left: 0;
+}
+.slide-btn-2:focus~.slideshow-wrapper {
+    animation: none;
+    left: -100%;
+}
+.slide-btn-3:focus~.slideshow-wrapper {
+    animation: none;
+    left: -200%;
+}
+.slide-btn-4:focus~.slideshow-wrapper {
+    animation: none;
+    left: -300%;
+}
+
+/* when we focus on the button, the background color changes */
+.slide-btn:focus {
+    background-color: #308d46;
+}
+/* ----- end of carousel control buttons stylings ----- */
+
+
+/* Latest releases section */
+.latest-release {
+	display: flex;
+	width: 100%;
+
+	/* border: 2px solid green; */
+	flex-wrap: wrap;
+	overflow: hidden;
+}
+
+.latest-release-box {
+	min-height: 70px;
+	width: 45%;
+	margin: 10px;
+	display: flex;
+	flex-direction: row;
+	margin: 5px auto 5px auto;
+
+	/* border: 2px solid orange; */
+}
+
+.latest-release-box img {
+	width: 35%;
+	max-height: 150px;
+}
+.latest-release-box span {
+	color: white;
+	width: 30%;
+
+	padding: 10px;
+}
+
+.last-span {
+	text-align: right;
+}
+
+.div-heading {
+	color: white;
+}
+/* --Popular releases ends-- */
+
+/* Popular Artists section */
+#popular-artists {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	overflow: hidden;
+	padding: 0px;
+
+	/* border: 2px solid green; */
+}
+
+#popular-artists span {
+	min-height: 50%;
+	max-height: 150px;
+	width: 15%;
+	margin: 5px auto 5px auto;
+	overflow: hidden;
+
+
+	/* border: 1px solid orange; */
+}
+
+#popular-artists img {
+	border-radius: 50%;
+
+	height: 70%;
+	width: 100%;
+	object-fit: cover;
+
+	/* border: 1px solid orange; */
+}
+
+#popular-artists span p {
+	color: white;
+	font-size: auto;
+	text-align: center;
+}
+/* --Popular artists ends-- */
+
+/* Music Types-1 */
+#music-type-1 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	overflow: hidden;
+	margin-top: 20px;
+
+	/* border: 2px solid green; */
+}
+
+.music-type-1-logo-box {
+	min-height: 50%;
+	max-height: 150px;
+	width: 15%;
+	margin: 5px auto 5px auto;
+
+	/* border: 1px solid orange; */
+}
+
+.music-type-1-logo-box img {
+	height: 100%;
+	width: 100%;
+}
+
+.music-type-1-box {
+	min-height: 50%;
+	max-height: 150px;
+	width: 13%;
+	margin: 5px auto 5px auto;
+	overflow: hidden;
+	border-radius: 50%;
+
+	/* border: 1px solid orange; */
+}
+
+.music-type-1-box img {
+	height: 100%;
+	width: 100%;
+	opacity: 0.5;
+
+	transition: 0.2s ease-in-out;
+}
+
+.absolute-text {
+	color: white;
+	position: relative;
+	font-size: 15px;
+	text-align: center;
+	top: -60%;
+	z-index: 1;
+}
+
+.music-type-1-box img:hover {
+	transform: scale(1.5);
+}
+
+/* Music type-2 */
+.music-type-2-box {
+	min-height: 50%;
+	max-height: 180px;
+	width: 33%;
+	margin: 5px auto 5px auto;
+	overflow: hidden;
+
+	/* border: 1px solid orange; */
+}
+
+.music-type-2-box img {
+	height: 100%;
+	width: 100%;
+
+	transition: 0.2s ease-in-out;
+}
+
+.music-type-2-box img:hover {
+	transform: scale(1.5);
+}
+
+/* Latest english section */
+#latest-english {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	overflow: hidden;
+	padding: 0px;
+
+	/* border: 2px solid green; */
+}
+
+#latest-english span {
+	min-height: 100%;
+	max-height: 300px;
+	width: 20%;
+	margin: 5px auto 5px auto;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	/* border: 1px solid orange; */
+}
+
+#latest-english span img {
+	width: 100%;
+	border-radius: 0% !important;
+}
+
+#latest-english span p,b {
+	color: white;
+	text-align: left;
+	margin: 0px;
+}
+
+.text-white {
+	color: white;
+}
+
+/* Aside tag */
+#aside-header{
+	height: auto;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    margin-bottom: 2vh;
+}
+
+#aside-title{
+	height: auto;
+	width: auto;
+	font-size: 2rem;
+	font-family: sans-serif;
+	color: var(--font_color_1);
+	font-weight: bold;
+	display: inline-flex;
+}
+
+#aside-dropdown{
+	margin-top: 1vh;
+	display: inline-flex;
+}
+
+#aside-dropdown select{
+	font-family: sans-serif;
+	color: var(--font_color_3);
+	font-weight: bold;
+	background-color: #010120;
+	border: 0px;
+}
+
+#aside-dropdown option{
+	font-size: 1.3rem;
+	font-family: sans-serif;
+	color: black;
+	background-color: var(--font_color_1);;
+	border :0px;
+}
+
+#aside-dropdown select:focus{
+	outline:none;
+}
+
+/* Queues */
+#queue-item{
+	width: 100%;
+	background-color: rgb(1, 72, 130,0.5);
+	display: flex;
+	flex-flow:row wrap;
+	margin-top: 1vh;
+	border-radius:5px;
+}
+
+#queue-item div {
+	display: inline;
+	margin: 5px;
+}
+
+#queue-item-img{
+	min-height: 80px;
+	width: 30%;
+	background-image: url(images/small-image.jpg);
+	background-position: center;
+	background-size: cover;
+	border-radius: 3px;
+}
+#queue-item-title{
+	font-family: sans-serif;
+	color: var(--font_color_1, white);
+	font-size: 0.8rem;
+	position: relative;
+	text-align: center;
+	padding-top: 8%;
+}
+
+#queue-favourite {
+	color: var(--font_color_1);
+	font-size: 1.2rem;
+	padding-top: 10%;
+	padding-left: 25%;
+}
+/* --End of aside section-- */
+
+/* Music bar footer */
+/*Music Bar*/
+#music-bar{
+	height: 10%;
+	width: 100%;
+
+	position: fixed;
+	bottom: 0px;
+	
+	background-color: var(--bg_music_bar);
+	opacity: 1;
+	color: var(--font_color_1);
+	z-index: 70;
+
+	display: flex;
+	flex-direction: row;
+	/* flex-wrap: wrap; */
+	/* justify-content: center; */
+	/* align-content: center; */
+	min-width: 450px;
+
+}
+
+#music-icon{
+	height: 80%;
+	min-width: 50px;
+	margin: auto 10px;
+	/* margin-bottom: 30px; */
+	/* margin-left: 2vw; */
+	/* margin-top: 6px; */
+	border:2px solid  var(--font_color_1);
+	opacity: 1;
+	overflow: hidden;
+}
+#music-icon img{
+	height: 100%;
+	width: 100%;
+	/* margin-left: 0; */
+	/* margin-top: 0; */
+	/* position: fixed; */
+	overflow: hidden;
+	object-fit: cover;
+}
+#music-bar:target{
+	display: block; /*When play button is clicked music bar is displayed*/
+}
+
+#music-title{
+	color: var(--font_color_1);
+	font-family: sans-serif;
+	font-size:0.8rem;
+	padding: 5px;
+
+	display: flex;
+	flex-direction: row;
+	/* margin-top: -3.5%; */
+	/* margin-left: 7.5%; */
+}
+#favourite{
+	/* margin-left: 5px; */
+	padding: 15px;
+	display: inline;
+}
+#remove{
+	padding: 15px;
+	/* margin-left: 5px; */
+   display: inline;
+}
+#music-player-title-artist{
+	color:lightgrey; 
+	font-size:0.8rem;
+	padding: 5px;
+}
+
+#play-music {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	/* align-content: center; */
+	/* justify-content: center; */
+	/* margin-left: 8%; */
+	/* align-content: sp; */
+}
+
+#play-buttons{
+	margin-top: 3%;
+	margin-left: 15%;
+	align-items: center;
+    font-size: 1.3rem;
+
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+
+	padding-bottom: 8px;
+	border-bottom: 4px solid rgb(6, 228, 6);
+}
+#play-buttons i{
+	padding-right: 10%;
+}
+
+
+#progress-bar{
+	height:3px;
+	width:380px;
+	/* background-color: var(--font_color_3); */
+	/* margin-left: 460px; */
+	/* margin-top:-1vh; */
+	/* border-radius: 2px; */
+
+	display: flex;
+	flex-direction: row;
+}
+#circle{
+	position: relative;
+	top: -10px;
+	left: 12px;
+	/* min-height: 2px; */
+}
+#start-time{
+	display: inline;
+	position: absolute;
+	color: white;
+	font-family: sans-serif;
+	position: relative;
+	/* left:28%; */
+	/* top:2.5%; */
+	bottom: 2px;
+	font-size: 0.8rem;
+}
+#end-time{
+	/* display: inline; */
+	position: relative;
+	color: white;
+	font-family: sans-serif;
+	font-size: 0.8rem;
+	position: relative;
+	left:90%;
+	/* top: -2.5%; */
+	bottom: 10px;
+}
+
+#queue{
+	/* display: inline; */
+	/* margin-left: 67%; */
+	/* position: relative; */
+	margin-top: 2%;
+	margin-left: 10%;
+	/* align-items: center; */
+	/* bottom: 21%; */
+}
+#volume{
+	margin-top: 2%;
+	margin-left: 2%;
+	/* display: inline; */
+	/* margin-left: 70%; */
+	/* position: relative; */
+	/* bottom: 38%; */
+}
+
+#progress-bar-volume{
+	height:3px;
+	width:10vw;
+	background-color: var(--font_color_3);
+	/* position: fixed; */
+	left: 75%;
+	/* top: 10%; */
+	margin-top: 2.5%;
+	margin-left: 1%;
+	/* border-radius: 2px; */
+	/* display: inline; */
+}
+
+#circle-volume{
+	position: relative;
+	top:-6px;
+	left:0%;
+}
+
+/*End of music bar*/
+
+/* media queries */
+@media screen and (max-width: 843px) {
+	#container {
+		width: 100%;
+		padding: 5px 10px 5px 10px;
+	}
+
+	.slideshow {
+		width: 60%;
+		margin: auto;
+	}
+
+	aside {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 988px) {
+	#play-music {
+		max-width: 30%;
+	}
+	#queue {
+		margin-left: 20%;
+	}
+}
+@media screen and (max-width: 887px) {
+	#volume {
+		margin-left: 20%;
+	}
+	#queue {
+		display: none;
+	}
+	#play-buttons {
+		border: 0px
+	}
+	#play-buttons {
+		margin-top: 15%;
+		margin-left: 75%;
+	}
+	#progress-bar {
+		display: none;
+	}
+}
+@media screen and (max-width: 814px) {
+	.absolute-text {
+		font-size: 10px;
+	}
+}
+@media screen and (max-width: 681px) {
+	#favourite {
+		display: none;
+	}
+	#remove {
+		display: none;
+	}
+}
+@media screen and (max-width: 603px)
+{
+	.slideshow {
+		width: 80%;
+		margin: auto;
+	}
+
+	#popular-artists span p {
+		font-size: 10px;
+	}
+
+	#volume, #progress-bar-volume {
+		display: none;
+	}
+
+	#play-buttons {
+		margin-left: 40%;
+	}
+}
+
+@media screen and (max-width: 550px)
+{
+	.latest-release-box {
+		width: 100%;
+	}
+
+	#brand-name {
+		display: none;
+	}
+
+	#logo-container {
+		width: 10%;
+	}
+}
+
+@media screen and (max-width: 525px) {
+	#queue-favourite {
+		padding-left: 5px;
+	}
+}
